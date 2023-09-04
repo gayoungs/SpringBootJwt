@@ -6,11 +6,14 @@
   <mapper namespace="com.coding404.jwt.user.UserMapper">
   	
   	<insert id="join">
-  		insert into users values(#{username}, #{password}, #{role}) 
+  		insert into users values(#{username}, #{password}, #{role})
   	</insert>
   	
   	<select id="login" resultType="UserVO">
   		select * from users where username = #{username}
   	</select>
+  	
+  	
+  	
   	
   </mapper>

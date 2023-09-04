@@ -10,10 +10,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.coding404.jwt.command.UserVO;
 
 
-
 //이객체는 화면에 전달이 되는데, 화면에서 여러분이 사용할 값들은 getter로 생성
-public class MyUserDetails implements UserDetails {
-
+public class MyUserDetails implements UserDetails{
+	
 	//멤버변수로 UserVO객체를 받습니다.
 	private UserVO userVO;
 	
@@ -27,10 +26,9 @@ public class MyUserDetails implements UserDetails {
 		return userVO.getRole();
 	}
 	
-	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		
+	
 		//UserVO가 가지고 있는 권한을 리스트에 담아서 반환시키면, 스프링 시큐리티가 참조해서 사용합니다.
 		List<GrantedAuthority> list = new ArrayList<>();
 		list.add(new GrantedAuthority() {
@@ -41,9 +39,7 @@ public class MyUserDetails implements UserDetails {
 		});
 		
 		return list;
-	
 	}
-		
 
 	@Override
 	public String getPassword() {
@@ -71,9 +67,8 @@ public class MyUserDetails implements UserDetails {
 	}
 
 	@Override
-	public boolean isEnabled() {
+	public boolean isEnabled() {	
 		return true; //사용할 수 있는 계정입니까?
 	}
-	
 
 }
